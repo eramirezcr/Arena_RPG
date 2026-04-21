@@ -1,14 +1,18 @@
-# Arena_RPG
-Proyecto de juego en java
+## Getting Started
 
-Este proyecto consiste en un juego sencillo en consola, una primera etapa en la que se pretende aplicar conocimientos aprendidos en programación orientada a objetos.
+Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
 
-Instrucciones del juego
+## Folder Structure
 
-1 Escriba el nombre de su personaje
+The workspace contains two folders by default, where:
 
-2 Escoga que tipo de personaje desea usar
+- `src`: the folder to maintain sources
+- `lib`: the folder to maintain dependencies
 
-3 Empieza la partida, ataque y reciba ataques, intenta que su oponente quede sin vida antes que tu e intenta que tu vida no se reduzca a cero
+Meanwhile, the compiled output files will be generated in the `bin` folder by default.
 
-Buena suerte, y disfrútaleo.
+> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+
+## Dependency Management
+
+The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
