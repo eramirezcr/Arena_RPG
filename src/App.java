@@ -44,5 +44,7 @@ public class App {
         System.out.println(jugador1.identidad());
         System.out.println("Estas son tus habilidades");
         System.out.println(jugador1.mostrarHabilidades());
+
+        scanner.close();
     }
 }
