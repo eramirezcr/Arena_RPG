@@ -15,7 +15,7 @@ public class Arquero extends Personaje {
            Salud: %s""".formatted(super.getNombre(), super.getVidaActual());
     }
 
-@Override
+    @Override
     String mostrarHabilidades() {
         return """
            Habilidad a usar:
@@ -25,6 +25,5 @@ public class Arquero extends Personaje {
            4. Habilidad.%s
            """.formatted(Habilidad.FlechaPrecisa, Habilidad.Medicamento,
             Habilidad.GolpePoderoso, Habilidad.Codazo);
-    }
-    
+    }    
 }

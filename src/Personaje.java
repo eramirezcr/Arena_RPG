@@ -7,6 +7,24 @@ public abstract class Personaje {
 
     abstract String identidad();
     abstract String mostrarHabilidades();
+    
+    public int atacar() {
+        return (int) (Math.random() * 21) + 5;
+    }
+
+    public void recibirAtaque(int intensidad) {
+        int vida = getVidaActual();
+        vida = vida - intensidad;
+        setVidaActual(vida);
+    }
+
+    public void recuperarVida() {
+        int vida = getVidaActual();
+        vida = vida + (int) (Math.random() * 7) + 1;
+        if(vida > getVidaMaxima()) //Se verifica que el jugador no tenga más vida de la permitida.
+            vida = getVidaMaxima();
+        setVidaActual(vida);
+    }
         
     public String getNombre() {
         return nombre;
