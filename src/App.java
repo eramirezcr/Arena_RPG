@@ -44,6 +44,9 @@ public class App {
         System.out.println("Estas son tus habilidades");
         System.out.println(jugador1.mostrarHabilidades());
 
+        // Nueva linea
+        Estadistica estadistica = new Estadistica();
+
         Personaje oponente = crearOponente();
         System.out.println("Te enfrentas a " + oponente.identidad());
 
@@ -56,22 +59,51 @@ public class App {
             //TODO: Falta la opción de rendirse y hacer el atque con algún item, este incrementa el daño al oponente
             switch (opcion) {
                 case '1':
-                    oponente.recibirAtaque(jugador1.atacar());
+                    // Nueva linea
+                    int danioJugador1 = jugador1.atacar();
+                    // Nueva linea
+                    oponente.recibirAtaque(danioJugador1);
+                    // Nueva linea
+                    estadistica.agregarDanoInfligido(danioJugador1);
+                    // Nueva linea
+                    estadistica.registrarTurnoJugado();
                     System.out.println(oponente.identidad());
                     break;
                 case '2':
+                    // Nueva linea
+                    int vidaAntes = jugador1.getVidaActual();
                     jugador1.recuperarVida();
+                    // Nueva linea
+                    estadistica.registrarCuracion(jugador1.getVidaActual() - vidaAntes);
+                    // Nueva linea
+                    estadistica.registrarTurnoJugado();
                     System.out.println(jugador1.identidad());
                     break;
                 case '3':
-                    oponente.recibirAtaque(jugador1.atacar());
+                    // Nueva linea
+                    int danioJugador3 = jugador1.atacar();
+                    // Nueva linea
+                    oponente.recibirAtaque(danioJugador3);
+                    // Nueva linea
+                    estadistica.agregarDanoInfligido(danioJugador3);
+                    // Nueva linea
+                    estadistica.registrarTurnoJugado();
                     System.out.println(oponente.identidad());
                     break;
                 case '4':
-                    oponente.recibirAtaque(jugador1.atacar());
+                    // Nueva linea
+                    int danioJugador4 = jugador1.atacar();
+                    // Nueva linea
+                    oponente.recibirAtaque(danioJugador4);
+                    // Nueva linea
+                    estadistica.agregarDanoInfligido(danioJugador4);
+                    // Nueva linea
+                    estadistica.registrarTurnoJugado();
                     System.out.println(oponente.identidad());
                     break;
                 default:
+                    // Nueva linea
+                    estadistica.registrarTurnoJugado();
                     System.out.println("Jaja, perdió su turno, ahora prepárese para lo que viene...");
                     break;                
             }
@@ -84,19 +116,38 @@ public class App {
 
             switch (opcion) {
                 case '1':
-                    jugador1.recibirAtaque(oponente.atacar());
+                    // Nueva linea
+                    int danioOponente1 = oponente.atacar();
+                    // Nueva linea
+                    jugador1.recibirAtaque(danioOponente1);
+                    // Nueva linea
+                    estadistica.agregarDanoRecibido(danioOponente1);
                     System.out.println(jugador1.identidad());
                     break;
                 case '2':
+                    // Nueva linea
+                    int vidaAntesOponente = oponente.getVidaActual();
                     oponente.recuperarVida();
+                    // Nueva linea
+                    estadistica.registrarCuracion(oponente.getVidaActual() - vidaAntesOponente);
                     System.out.println(oponente.identidad());
                     break;
                 case '3':
-                    jugador1.recibirAtaque(oponente.atacar());
+                    // Nueva linea
+                    int danioOponente3 = oponente.atacar();
+                    // Nueva linea
+                    jugador1.recibirAtaque(danioOponente3);
+                    // Nueva linea
+                    estadistica.agregarDanoRecibido(danioOponente3);
                     System.out.println(jugador1.identidad());
                     break;
                 case '4':
-                    jugador1.recibirAtaque(oponente.atacar());
+                    // Nueva linea
+                    int danioOponente4 = oponente.atacar();
+                    // Nueva linea
+                    jugador1.recibirAtaque(danioOponente4);
+                    // Nueva linea
+                    estadistica.agregarDanoRecibido(danioOponente4);
                     System.out.println(jugador1.identidad());
                     break;
                 default:
@@ -117,6 +168,16 @@ public class App {
             System.out.println(oponente.getNombre() + " sobrevivió.");
         else
             System.out.println(oponente.getNombre() + " murió. RIP :-(");
+
+        // Nueva linea
+        if (jugador1.getVidaActual() > 0) {
+            estadistica.registrarVictoria();
+        } else {
+            estadistica.registrarDerrota();
+        }
+
+        // Nueva linea
+        System.out.println(estadistica);
 
         scanner.close();
     }
