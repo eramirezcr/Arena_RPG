@@ -11,11 +11,13 @@ public class App {
         Scanner scanner = new Scanner(System.in);
         String nombreJugador = scanner.nextLine();
         char opcion;
+        int nivel = 1;
 
         Personaje jugador1 = null;
 
         do{
             System.out.println("Selecciones el tipo de jugador que será " + nombreJugador);
+            System.out.println("Nivel: " + nivel);
             System.out.println("1 Arquero");
             System.out.println("2 Guerrero");
             System.out.println("3 Mago");
@@ -71,11 +73,16 @@ public class App {
                     oponente.recibirAtaque(jugador1.atacar());
                     System.out.println(oponente.identidad());
                     break;
+                case '5':
+                    System.out.println("Vaya cobarde!");
+                    break;
                 default:
                     System.out.println("Jaja, perdió su turno, ahora prepárese para lo que viene...");
                     break;                
             }
-
+            
+            System.out.println("Tu oponenten está atacando...");
+            Thread.sleep(5000);
             //El oponente ataca
             if(oponente.getVidaActual() < 3)
                 opcion = '2';
