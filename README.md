@@ -28,6 +28,8 @@ Enemigos Escalables: La dificultad aumenta, obligándote a optimizar tu build de
 ### DISFRUTA!
 
 Elías Guillermo Ramírez Segura
+
 Erick Alonso Padilla Navarro
+
 Jose Mauricio Mora Esquivel
 
